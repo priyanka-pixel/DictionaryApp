@@ -26,13 +26,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             DictionaryAppTheme {
-                val viewModel: WordInfoViewModel= hiltViewModel()
+                val viewModel: WordInfoViewModel = hiltViewModel()
                 val state = viewModel.state.value
                 val scaffoldState = rememberScaffoldState()
 
                 LaunchedEffect(key1 = true) {
                     viewModel.eventFlow.collectLatest { event ->
-                        when(event) {
+                        when (event) {
                             is WordInfoViewModel.UIEvent.ShowSnackbar -> {
                                 scaffoldState.snackbarHostState.showSnackbar(
                                     message = event.message
@@ -67,17 +67,17 @@ class MainActivity : ComponentActivity() {
                             ) {
                                 items(state.wordInfoItems.size) { i ->
                                     val wordInfo = state.wordInfoItems[i]
-                                    if(i > 0) {
+                                    if (i > 0) {
                                         Spacer(modifier = Modifier.height(8.dp))
                                     }
                                     WordInfoItem(wordInfo = wordInfo)
-                                    if(i < state.wordInfoItems.size - 1) {
+                                    if (i < state.wordInfoItems.size - 1) {
                                         Divider()
                                     }
                                 }
                             }
                         }
-                        if(state.isLoading) {
+                        if (state.isLoading) {
                             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
                         }
                     }

@@ -39,7 +39,7 @@ class WordInfoViewModel @Inject constructor(
             delay(500L)
             getWordInfo(query)
                 .onEach { result ->
-                    when(result) {
+                    when (result) {
                         is Resource.Success -> {
                             _state.value = state.value.copy(
                                 wordInfoItems = result.data ?: emptyList(),
@@ -51,9 +51,11 @@ class WordInfoViewModel @Inject constructor(
                                 wordInfoItems = result.data ?: emptyList(),
                                 isLoading = false
                             )
-                            _eventFlow.emit(UIEvent.ShowSnackbar(
-                                result.message ?: "Unknown error"
-                            ))
+                            _eventFlow.emit(
+                                UIEvent.ShowSnackbar(
+                                    result.message ?: "Unknown error"
+                                )
+                            )
                         }
                         is Resource.Loading -> {
                             _state.value = state.value.copy(
@@ -67,6 +69,6 @@ class WordInfoViewModel @Inject constructor(
     }
 
     sealed class UIEvent {
-        data class ShowSnackbar(val message: String): UIEvent()
+        data class ShowSnackbar(val message: String) : UIEvent()
     }
 }

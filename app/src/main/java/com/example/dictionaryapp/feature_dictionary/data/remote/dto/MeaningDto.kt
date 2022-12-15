@@ -7,7 +7,7 @@ data class MeaningDto(
     val definitions: List<DefinitionDto> = listOf(),
     val partOfSpeech: String = "",
     val synonyms: List<String> = listOf()
-){
+) {
     fun toMeaning(): Meaning {
         return Meaning(
             antonyms = antonyms,

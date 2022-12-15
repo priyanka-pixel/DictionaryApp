@@ -8,9 +8,9 @@ import com.example.dictionaryapp.feature_dictionary.domain.model.WordInfo
 @Entity
 data class WordInfoEntity(
     val word: String,
-   // val sourceUrls: List<String>,
+    // val sourceUrls: List<String>,
     val meanings: List<Meaning>,
-  //  val license: LicenseDto,
+    //  val license: LicenseDto,
     @PrimaryKey val
     id: Int? = null
 ) {
@@ -18,7 +18,7 @@ data class WordInfoEntity(
         return WordInfo(
             meanings = meanings,
             word = word,
-          //  sourceUrls = sourceUrls,
+            //  sourceUrls = sourceUrls,
             //license = license
         )
     }

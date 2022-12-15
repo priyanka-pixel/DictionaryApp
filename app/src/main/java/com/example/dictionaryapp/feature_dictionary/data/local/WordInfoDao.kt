@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.dictionaryapp.feature_dictionary.data.local.entities.WordInfoEntity
 
+
 @Dao
 interface WordInfoDao {
 

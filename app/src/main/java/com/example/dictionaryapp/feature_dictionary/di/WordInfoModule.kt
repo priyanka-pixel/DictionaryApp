@@ -34,7 +34,7 @@ object WordInfoModule {
         db: WordInfoDatabase,
         api: DictionaryApi
     ): WordInfoRepository {
-        return WordInfoRepositoryImpl(api, db.dao)
+        return WordInfoRepositoryImpl(api, db)
     }
 
     @Provides
